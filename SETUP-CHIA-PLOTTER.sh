@@ -272,8 +272,8 @@ echo "The Chia Blockchain needs Access to the Main Wallet's CA/SSL/TLS directory
 echo 
 echo "Chia Config File: /home/plotter/.chia/mainnet/config/config.yaml (Only Appears After 'chia init' Command is Run)"
 echo "Swar Config File: /usr/share/Swar-Chia-Plot-Manager/config.yaml"
-echo "Chia Bin File: /usr/share/chia-blockchain/venv/bin"
-echo "Chia Bin Directory: /usr/share/chia-blockchain/venv/bin/chia" 
+echo "Chia Bin File: /usr/share/chia-blockchain/venv/bin/chia"
+echo "Chia Bin Directory: /usr/share/chia-blockchain/venv/bin" 
 echo 
 echo 
 echo "Follow Guide Here Before Running SWAR: https://github.com/Chia-Network/chia-blockchain/wiki/Farming-on-many-machines"
