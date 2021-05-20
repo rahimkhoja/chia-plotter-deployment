@@ -27,7 +27,7 @@ echo "---By: Rahim Khoja (rahim.khoja@alumni.ubc.ca)---"
 echo
 
 # Requirements: Ubuntu 20.04 LTS (Desktop Minimal)
-#               User plotter added to system
+#               User 'plotter' added to system
 #               Internet Access
 #               An NVME Drive for Plotting (Must not be boot disk)
 #               A SSD Boot Disk (Chia seems to need this) [It May be fine with 7200RPM+ Disk]
