@@ -1,0 +1,14 @@
+# Chia Wallet Monitor Service
+
+[Unit]
+Description=Chia Wallet Monitor. Logs Chia Wallet Information to Telegram
+Wants=chia-wallet-watch.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/chia-scripts/wallet_report.sh
+User=chia-node
+Group=chia-node
+
+[Install]
+WantedBy=multi-user.target
