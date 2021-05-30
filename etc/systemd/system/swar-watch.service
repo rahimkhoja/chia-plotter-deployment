@@ -6,7 +6,7 @@ Wants=swar-watch.timer
 
 [Service]
 Type=oneshot
-ExecStart=/usr/share/chia-scripts/plotter_info.sh
+ExecStart=/usr/share/chia-scripts/swar_info.sh
 User=storage
 Group=storage
 
