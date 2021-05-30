@@ -1,0 +1,13 @@
+# Timer for Chia Harvester Watch Service
+
+[Unit]
+Description=Timer for Chia Harvester Watch Service
+Requires=harvester-watch.service
+
+[Timer]
+Unit=harvester-watch.service
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
