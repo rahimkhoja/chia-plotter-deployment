@@ -1,0 +1,13 @@
+# Timer for Swar Watch Service
+
+[Unit]
+Description=Timer for Swar Watch Service
+Requires=swar-watch.service
+
+[Timer]
+Unit=swar-watch.service
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
