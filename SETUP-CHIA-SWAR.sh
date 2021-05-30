@@ -65,6 +65,8 @@ cd /usr/share
 git clone https://github.com/swar/Swar-Chia-Plot-Manager.git
 chmod -R 777 /usr/share/Swar-Chia-Plot-Manager
 sudo -u storage -- sh -c "cd /usr/share/Swar-Chia-Plot-Manager; /usr/bin/pip3 install -r requirements.txt"
+sudo -u storage -- sh -c "cd /usr/share/Swar-Chia-Plot-Manager; /usr/bin/pip3 install -r requirements-notification.txt"
+
 
 cp /usr/share/Swar-Chia-Plot-Manager/config.yaml.default /usr/share/Swar-Chia-Plot-Manager/config.yaml
 
