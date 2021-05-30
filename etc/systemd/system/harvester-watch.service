@@ -6,7 +6,7 @@ Wants=harvester-watch.timer
 
 [Service]
 Type=oneshot
-ExecStart=/usr/share/chia-scripts/swar_info.sh
+ExecStart=/usr/share/chia-scripts/harvester_info.sh
 User=storage
 Group=storage
 
