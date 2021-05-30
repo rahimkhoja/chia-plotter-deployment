@@ -1,0 +1,14 @@
+# Swar Monitor Service
+
+[Unit]
+Description=Swar Monitor. Logs Swar Plot Manager Information to Telegram
+Wants=swar-watch.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/chia-scripts/wallet_report.sh
+User=storage
+Group=storage
+
+[Install]
+WantedBy=multi-user.target
