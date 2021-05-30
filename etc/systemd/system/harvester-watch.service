@@ -1,0 +1,14 @@
+# Chia Harvester Monitor Service
+
+[Unit]
+Description=Chia Harvester Monitor. Logs Harvertor Plot Information to Telegram
+Wants=harvester-watch.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/chia-scripts/swar_info.sh
+User=storage
+Group=storage
+
+[Install]
+WantedBy=multi-user.target
