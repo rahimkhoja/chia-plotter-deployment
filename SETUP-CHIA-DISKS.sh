@@ -1,4 +1,60 @@
+#!/bin/bash
+
+# NVME Soft Raid 0 for Chia Mining 
+# By Rahim Khoja (rahim.khoja@alumni.ubc.ca)
+# https://www.linkedin.com/in/rahim-khoja-879944139/
+
+echo
+echo -e "\033[0;31m░░░░░░░░▀▀▀██████▄▄▄"
+echo "░░░░░░▄▄▄▄▄░░█████████▄ "
+echo "░░░░░▀▀▀▀█████▌░▀▐▄░▀▐█ "
+echo "░░░▀▀█████▄▄░▀██████▄██ "
+echo "░░░▀▄▄▄▄▄░░▀▀█▄▀█════█▀"
+echo "░░░░░░░░▀▀▀▄░░▀▀███░▀░░░░░░▄▄"
+echo "░░░░░▄███▀▀██▄████████▄░▄▀▀▀██▌"
+echo "░░░██▀▄▄▄██▀▄███▀▀▀▀████░░░░░▀█▄"
+echo "▄▀▀▀▄██▄▀▀▌█████████████░░░░▌▄▄▀"
+echo "▌░░░░▐▀████▐███████████▌"
+echo "▀▄░░▄▀░░░▀▀██████████▀"
+echo "░░▀▀░░░░░░▀▀█████████▀"
+echo "░░░░░░░░▄▄██▀██████▀█"
+echo "░░░░░░▄██▀░░░░░▀▀▀░░█"
+echo "░░░░░▄█░░░░░░░░░░░░░▐▌"
+echo "░▄▄▄▄█▌░░░░░░░░░░░░░░▀█▄▄▄▄▀▀▄"
+echo -e "▌░░░░░▐░░░░░░░░░░░░░░░░▀▀▄▄▄▀\033[0m"
+echo "---NVME Soft Raid 0 for Chia Mining Setup Script---"
+echo "---By: Rahim Khoja (rahim.khoja@alumni.ubc.ca)---"
+echo
+
+# Requirements: Ubuntu 20.04 LTS (Desktop Minimal)
+#               Internet Access
+#               (2) Two NVME Drives
+
+# Stop on Error
+set -eE  # same as: `set -o errexit -o errtrace`
+
+# Failure Function
+function failure() {
+    local lineno=$1
+    local msg=$2
+    echo ""
+    echo -e "\033[0;31mError at Line Number $lineno: '$msg'\033[0m"
+    echo ""
+}
+
+# Failure Function Trap
+trap 'failure ${LINENO} "$BASH_COMMAND"' ERR
+
+# Check the bash shell script is being run by root/sudo
+if [[ $EUID -ne 0 ]];
+then
+    echo "This script must be run with sudo" 1>&2
+    exit 1
+fi
+
 # Setup NVME Soft Raid. (This uses two NVME drives, feel free to modify for your own needs)
+# NVME Drives must show up as /dev/nvme0n1 and /dev/nvme1n1.
+
 apt-get install -y mdadm
 mdadm --zero-superblock /dev/nvme0n1
 mdadm --zero-superblock /dev/nvme1n1
