@@ -14,13 +14,17 @@ To use the systemd scripts you must setup a Telegram Bot and connect the Bot to 
 
 ### Telegram Steps
 
- - Go to https://core.telegram.org/bots and setup a bot with the Bot Father. Keep a copy of the API Key. ( Don't share this )
+ - Go to https://t.me/botfather and setup a bot with the Bot Father. Keep a copy of the API Key. ( Don't share this ) (Here is a guide https://core.telegram.org/bots/#6-botfather)
  - Create a Telegram Group and add yourself to it, along with anyone else you want to get the Bot Messages.
  - Add the Bot to the Telegram Group you just made.
  - Give the Bot Admin Access to the Telegram Group. (You may be able to set the permissions a little more securly)
  - Send a message on the Telegram Group so that the bot can find the group.
- - ( Optional ) Telegram-Send is installed as part of my deployment scripts so you may not need this. `sudo pip3 install telegram-send`
- - 
+ - ( Optional ) Telegram-Send is installed as part of my deployment scripts so you may not need this. (Requires pip or pip3 to install)
+   `sudo pip3 install telegram-send`
+ - Configure telegram-send. Type the following and follow instructions: (It will ask for API Key, and it will also ask you to type a code into the Telegram Group you just made)
+   `telegram-send --configure`
+ - Test by sending a message.
+   `telegram-send "Rahim is Awesome"`
 
 
 
