@@ -1,3 +1,4 @@
+# Setup NVME Soft Raid. (This uses two NVME drives, feel free to modify for your own needs)
 apt-get install -y mdadm
 mdadm --zero-superblock /dev/nvme0n1
 mdadm --zero-superblock /dev/nvme1n1
@@ -7,9 +8,14 @@ mkdir -p /mnt/plot
 mount /dev/md0 /mnt/plot/
 mdadm --detail --scan | tee -a /etc/mdadm/mdadm.conf
 update-initramfs -u
-echo '/dev/md0 /mnt/plot ext4 defaults,nofail,discard 0 0' | tee -a /etc/fstab
+echo '/dev/md0 /mnt/plot ext4 defaults,nofail 0 0' | tee -a /etc/fstab
 cat /proc/mdstat
 chmod -R 777 /mnt/plot/
+
+
+
+systemctl enable fstrim.timer
+
 
 wipefs /dev/sdb
 wipefs /dev/sdc
