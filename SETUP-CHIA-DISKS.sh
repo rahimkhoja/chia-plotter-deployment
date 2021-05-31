@@ -52,6 +52,8 @@ then
     exit 1
 fi
 
+baseuser=$(pstree -lu -s $$ | grep --max-count=1 -o '([^)]*)' | head -n 1 | sed 's/[()]//g') # Run commands in brackets and save output to variable`
+
 # Setup NVME Soft Raid. (This uses two NVME drives, feel free to modify for your own needs)
 # NVME Drives must show up as /dev/nvme0n1 and /dev/nvme1n1.
 
@@ -68,8 +70,7 @@ echo '/dev/md0 /mnt/plot ext4 defaults,nofail 0 0' | tee -a /etc/fstab
 cat /proc/mdstat
 chmod -R 777 /mnt/plot/
 
-
-
+systemctl daemon-reload
 systemctl enable fstrim.timer
 
 
