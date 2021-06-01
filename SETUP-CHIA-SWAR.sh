@@ -53,6 +53,9 @@ then
     exit 1
 fi
 
+# Get the user that ran the Script (Not Root)
+baseuser=$(pstree -lu -s $$ | grep --max-count=1 -o '([^)]*)' | head -n 1 | sed 's/[()]//g') 
+
 # Update and Upgrade System
 apt -y update
 apt -y upgrade
@@ -75,7 +78,7 @@ chmod -R 777 /var/log/chia
 chmod -R 777 /var/log/swar
 
 # Stop Chia Daemon
-sudo -u storage -- sh -c "/usr/share/chia-blockchain/venv/bin/chia stop all -d" || true
+sudo -u ${baseuser} -- sh -c "/usr/share/chia-blockchain/venv/bin/chia stop all -d" || true
 
 
 # Get System Info
