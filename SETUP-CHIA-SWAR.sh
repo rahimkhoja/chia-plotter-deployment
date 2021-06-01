@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Chia Full Node Setup
+# Chia Swar Plot Manager Deployment
 # By Rahim Khoja (rahim.khoja@alumni.ubc.ca)
 # https://www.linkedin.com/in/rahim-khoja-879944139/
 
@@ -22,13 +22,14 @@ echo "░░░░░░▄██▀░░░░░▀▀▀░░█"
 echo "░░░░░▄█░░░░░░░░░░░░░▐▌"
 echo "░▄▄▄▄█▌░░░░░░░░░░░░░░▀█▄▄▄▄▀▀▄"
 echo -e "▌░░░░░▐░░░░░░░░░░░░░░░░▀▀▄▄▄▀\033[0m"
-echo "---The Chia Full Node Setup Script---"
+echo "---The Chia Swar Plot Manager Deployment Script---"
 echo "---By: Rahim Khoja (rahim.khoja@alumni.ubc.ca)---"
 echo
 
 # Requirements: Ubuntu 20.04 LTS (Desktop Minimal)
 #               Internet Access
-#               A SSD Boot Disk (Chia seems to need this) [It May be fine with 7200RPM+ Disk]
+#               Chia Installed at /usr/share/chia-blockchain
+#               NVME Mounted at /mnt/plot
 
 # Stop on Error
 set -eE  # same as: `set -o errexit -o errtrace`
@@ -55,18 +56,15 @@ fi
 # Update and Upgrade System
 apt -y update
 apt -y upgrade
-apt -y install git
 apt -y install python3
 apt -y install python3-pip
 
-
-# Install SWAR Plot Manager as Storage User
+# Install SWAR Plot Manager as Non Root User
 cd /usr/share
 git clone https://github.com/swar/Swar-Chia-Plot-Manager.git
 chmod -R 777 /usr/share/Swar-Chia-Plot-Manager
 sudo -u storage -- sh -c "cd /usr/share/Swar-Chia-Plot-Manager; /usr/bin/pip3 install -r requirements.txt"
 sudo -u storage -- sh -c "cd /usr/share/Swar-Chia-Plot-Manager; /usr/bin/pip3 install -r requirements-notification.txt"
-
 
 cp /usr/share/Swar-Chia-Plot-Manager/config.yaml.default /usr/share/Swar-Chia-Plot-Manager/config.yaml
 
