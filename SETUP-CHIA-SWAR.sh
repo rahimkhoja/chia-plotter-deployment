@@ -28,7 +28,7 @@ echo
 
 # Requirements: Ubuntu 20.04 LTS (Desktop Minimal)
 #               Internet Access
-#               Chia Installed at /usr/share/chia-blockchain
+#               Chia Installed at /usr/share/chia-blockchain & chia initialized 
 #               NVME Mounted at /mnt/plot
 
 # Stop on Error
