@@ -52,6 +52,9 @@ then
     exit 1
 fi
 
+# Get the user that ran the Script (Not Root)
+baseuser=$(pstree -lu -s $$ | grep --max-count=1 -o '([^)]*)' | head -n 1 | sed 's/[()]//g')
+
 # Update and Upgrade System
 apt -y update
 apt -y upgrade
@@ -63,17 +66,17 @@ apt -y install python3-pip
 cd /usr/share
 git clone https://github.com/Chia-Network/chia-blockchain.git -b latest --recurse-submodules
 chmod -R 777 /usr/share/chia-blockchain
-sudo -u storage -- sh -c "cd /usr/share/chia-blockchain; sh install.sh"
+sudo -u ${baseuser} -- sh -c "cd /usr/share/chia-blockchain; sh install.sh"
 
 # Install Chia Gui as Plotter User
-sudo -u storage -- sh -c "cd /usr/share/chia-blockchain;  . ./activate; sh install-gui.sh"
+sudo -u ${baseuser} -- sh -c "cd /usr/share/chia-blockchain;  . ./activate; sh install-gui.sh"
 
 # Crate CHIA & Swar Log Dir
 mkdir /var/log/chia || true
 chmod -R 777 /var/log/chia
 
 # Stop Chia Daemon
-sudo -u storage -- sh -c "/usr/share/chia-blockchain/venv/bin/chia stop all -d" || true
+sudo -u ${baseuser} -- sh -c "/usr/share/chia-blockchain/venv/bin/chia stop all -d" || true
 
 echo "Chia Config File: /home/plotter/.chia/mainnet/config/config.yaml (Only Appears After 'chia init' Command is Run)"
 echo "Chia Bin File: /usr/share/chia-blockchain/venv/bin/chia"
