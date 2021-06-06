@@ -127,6 +127,9 @@ sed -i '/^chia_location:/c\chia_location: /usr/share/chia-blockchain/venv/bin/ch
 sed -i '/^  folder_path:/c\  folder_path: /var/log/swar' /usr/share/Swar-Chia-Plot-Manager/config.yaml
 sed -i "/^  max_concurrent:/c\  max_concurrent: ${max_plots}" /usr/share/Swar-Chia-Plot-Manager/config.yaml
 
+cd ~/
+pip3 install telegram-send
+
 echo
 echo "The Chia Plotters Need a Farm/Ploter Key in the config File"
 echo "The Chia Blockchain needs Access to the Main Wallet's CA/SSL/TLS directory"
