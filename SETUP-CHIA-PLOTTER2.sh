@@ -28,6 +28,7 @@ echo
 
 # Requirements: Ubuntu 20.04 LTS (Desktop Minimal)
 #               An NVME Drive for Plotting (Must not be boot disk)
+#               /dev/sdb (a destination disk)
 #               32 GB of Ram
 #               Internet Access
 
