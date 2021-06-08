@@ -63,7 +63,7 @@ apt -y install python3-pip
 apt -y install cmake
 apt -y install libsodium-dev
 apt -y install libgmp-dev
-apy -y install openssh-server
+apt -y install openssh-server
 apt -y install nfs-kernel-server 
 apt -y install xfsprogs
 
