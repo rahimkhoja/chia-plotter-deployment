@@ -1,0 +1,13 @@
+# MadMax Chia Plotter Service
+
+[Unit]
+Description=MadMax Chia Plotter Service. Creates a Plot, Copies it to Destination, and starts over again
+After=network.service
+
+[Service]
+ExecStart=/usr/local/bin/madmax-plot.sh
+User=root
+Group=root
+
+[Install]
+WantedBy=default.target
