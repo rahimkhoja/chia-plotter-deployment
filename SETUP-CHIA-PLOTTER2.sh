@@ -108,3 +108,4 @@ chmod -R 777 /r0zfs1
 zfs set sharenfs="on" r0zfs1
 
 #chia_plot a0226aee1c59ba9a70f9c4aab77ea662bce96766b58913dfff2fb48c5766d594d0430b38df7b5f9f1787d39d7ab310f6 9425d29b05b659d05814cd989e0d976c9b755f9730d3e112c8609aa3d5dd250a86ecb8c164a66861857d45e71d6c9b9a /mnt/plot/2a/ /mnt/plot/2b/ 29 7
+rsync -avzh --remove-source-files --progress /mnt/plot/*.plot r0zfs1/ 
