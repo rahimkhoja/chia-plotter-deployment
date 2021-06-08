@@ -22,13 +22,14 @@ echo "░░░░░░▄██▀░░░░░▀▀▀░░█"
 echo "░░░░░▄█░░░░░░░░░░░░░▐▌"
 echo "░▄▄▄▄█▌░░░░░░░░░░░░░░▀█▄▄▄▄▀▀▄"
 echo -e "▌░░░░░▐░░░░░░░░░░░░░░░░▀▀▄▄▄▀\033[0m"
-echo "---The Chia Swar Plotter Setup Script---"
+echo "---The Chia MadMax Plotter Setup Script---"
 echo "---By: Rahim Khoja (rahim.khoja@alumni.ubc.ca)---"
 echo
 
 # Requirements: Ubuntu 20.04 LTS (Desktop Minimal)
-#               User 'plotter' added to system
 #               An NVME Drive for Plotting (Must not be boot disk)
+#               32 GB of Ram
+#               Internet Access
 
 # Stop on Error
 set -eE  # same as: `set -o errexit -o errtrace`
