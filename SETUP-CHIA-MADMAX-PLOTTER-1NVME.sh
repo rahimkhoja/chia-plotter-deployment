@@ -106,7 +106,7 @@ chmod +x /usr/local/bin/madmax-plot.sh
 cp etc/systemd/system/plotter.service /etc/systemd/system/
 
 # Install Updated FSTrim Timer Service ( Hourly )
-cp etc/systemd/system/timers.target.wants/ /etc/systemd/system/timers.target.wants/fstrim.timer
+cp etc/systemd/system/timers.target.wants/fstrim.timer /etc/systemd/system/timers.target.wants/
 
 # Setup and Compile MadMax Chia Plotter
 cd /usr/share
