@@ -28,11 +28,7 @@ echo
 
 # Requirements: Ubuntu 20.04 LTS (Desktop Minimal)
 #               User 'plotter' added to system
-#               Internet Access
 #               An NVME Drive for Plotting (Must not be boot disk)
-#               A SSD Boot Disk (Chia seems to need this) [It May be fine with 7200RPM+ Disk]
-#               The Main Wallet's CA (Shared by NFS is best)
-#               The Plot Storage Location (NFS to Remote Storage is best)
 
 # Stop on Error
 set -eE  # same as: `set -o errexit -o errtrace`
@@ -73,6 +69,9 @@ systemctl disable ufw
 # Enable SSH Daemon
 systemctl enable ssh
 
+# Disable GUI
+systemctl set-default multi-user
+
 # Setup NVME as Plotting Disk
 wipefs /dev/nvme0n1
 (
@@ -89,6 +88,9 @@ mkdir /mnt/plot || true
 echo "/dev/nvme0n1p1   /mnt/plot       ext4    defaults        0       0" >> /etc/fstab
 mount -a
 chmod -R 777 /mnt/plot
+
+# Install Telegram-Send
+pip3 install telegram-send
 
 # Setup and Compile MadMax Chia Plotter
 cd /usr/share
