@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Chia Swar Plotter Setup
+# Chia MadMax Plotter Setup
 # By Rahim Khoja (rahim.khoja@alumni.ubc.ca)
 # https://www.linkedin.com/in/rahim-khoja-879944139/
 
