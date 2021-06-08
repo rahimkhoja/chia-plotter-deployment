@@ -65,6 +65,7 @@ apt -y install libsodium-dev
 apt -y install libgmp-dev
 apy -y install openssh-server
 apt -y install nfs-kernel-server 
+apt -y install xfsprogs
 
 # Disable Firewall
 systemctl disable ufw
@@ -86,9 +87,9 @@ echo   # First sector (Accept default: 1)
 echo   # Last sector (Accept default: varies)
 echo w # Write changes
 ) | sudo fdisk /dev/nvme0n1
-mkfs.ext4 -F /dev/nvme0n1p1
+mkfs.xfs -F /dev/nvme0n1p1
 mkdir /mnt/plot || true
-echo "/dev/nvme0n1p1   /mnt/plot       ext4    defaults        0       0" >> /etc/fstab
+echo "/dev/nvme0n1p1   /mnt/plot       xfs    defaults        0       0" >> /etc/fstab
 mount -a
 chmod -R 777 /mnt/plot
 
@@ -129,3 +130,6 @@ systemctl enable fstrim.timer
 
 # Enable Plotter Service
 systemctl enable plotter.service
+
+# Reboot & Start Plotting
+reboot
