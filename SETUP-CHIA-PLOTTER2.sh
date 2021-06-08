@@ -87,14 +87,14 @@ echo   # First sector (Accept default: 1)
 echo   # Last sector (Accept default: varies)
 echo w # Write changes
 ) | sudo fdisk /dev/nvme0n1
-mkfs.xfs -F /dev/nvme0n1p1
+mkfs.xfs -f /dev/nvme0n1p1
 mkdir /mnt/plot || true
 echo "/dev/nvme0n1p1   /mnt/plot       xfs    defaults        0       0" >> /etc/fstab
 mount -a
 chmod -R 777 /mnt/plot
 
 # Create Logging Directory 
-mkdir -p /var/log/chia-plotter
+mkdir -p /var/log/chia-plotter || true
 chmod -R 777 /var/log/chia-plotter
 
 # Install Telegram-Send
