@@ -112,6 +112,7 @@ zfs set sharenfs="on" r0zfs1
 mkdir -p /var/log/chia-plotter
 chmod -R 777 /var/log/chia-plotter
 
+# This should be on startup .. will fix soon
 while true
 do
     # Sleep For 10 Seconds
