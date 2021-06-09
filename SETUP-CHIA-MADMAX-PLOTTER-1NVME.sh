@@ -57,15 +57,16 @@ fi
 # Update and Upgrade System
 apt -y update
 apt -y upgrade
-apt -y install git
-apt -y install python3
-apt -y install python3-pip
-apt -y install cmake
-apt -y install libsodium-dev
-apt -y install libgmp-dev
-apt -y install openssh-server
-apt -y install nfs-kernel-server 
-apt -y install xfsprogs
+apt -y install git                 # Git
+apt -y install python3             # Python 3
+apt -y install python3-pip         # Pip3 Python 3 Package Manager
+apt -y install cmake               # Cmake Compiler (MadMax Plotter)
+apt -y install libsodium-dev       # Sodium Lib (MadMax Plotter)
+apt -y install libgmp-dev          # GMP Lib (MadMax Plotter)
+apt -y install openssh-server      # SSH Server
+apt -y install nfs-kernel-server   # NFS Server
+apt -y install xfsprogs            # XFS FS 
+apt -y install zfsutils-linux      # ZFS FS
 
 # Disable Firewall
 systemctl disable ufw
@@ -131,5 +132,8 @@ systemctl enable fstrim.timer
 # Enable Plotter Service
 systemctl enable plotter.service
 
-# Reboot & Start Plotting
-reboot
+
+
+echo
+echo "Deployment Successful"
+echo "You Have 
