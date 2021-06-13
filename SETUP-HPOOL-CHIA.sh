@@ -55,6 +55,10 @@ fi
 # Remove Old Installation
 rm -rf /usr/share/hpool || true
 
+# Crate HPool Log Dir
+mkdir /var/log/HPool || true
+chmod -R 777 /var/log/HPool
+
 # Deploy HPool Chia Miner
 mkdir /usr/share/hpool/ 
 cd /usr/share/hpool/
