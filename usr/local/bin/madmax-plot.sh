@@ -11,6 +11,7 @@ telegram-send "Starting MadMax Chia Plotter on ${HOSTNAME}"
 # Clear the Plotting Disk Before Start
 rm -f /mnt/plot/*
 
+# Loop Until Disk Full
 while true
 do
     # Get Available Space on Destination Disk
