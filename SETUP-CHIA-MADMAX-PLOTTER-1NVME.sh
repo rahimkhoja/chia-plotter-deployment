@@ -118,10 +118,10 @@ bash ./make_devel.sh
 cp /usr/share/chia-plotter/build/chia_plot /usr/bin/
 
 # Setup ZFS Disk
-wipefs /dev/sdb
-zpool create r0zfs1 /dev/sdb -f
-chmod -R 777 /r0zfs1
-zfs set sharenfs="on" r0zfs1
+#wipefs /dev/sdb
+#zpool create r0zfs1 /dev/sdb -f
+#chmod -R 777 /r0zfs1
+#zfs set sharenfs="on" r0zfs1
 
 # Reload Systemd Daemons
 systemctl daemon-reload
