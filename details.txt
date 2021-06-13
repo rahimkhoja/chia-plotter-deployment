@@ -1,1 +1,36 @@
 1758081017:AAGYNADoqlnRqMtiYubJxKtCIHEjW2qGHqI
+
+
+token: ""
+path:
+ - /r0zfs1
+ - /r0zfs2
+ - /r0zfs3
+ - /r0zfs4
+ - /r0zfs5
+ - /r0zfs6
+ - /r0zfs7
+ - /r0zfs8
+ - /r0zfs9
+ - /r0zfs10
+ - /r0zfs11
+minerName: storage-001
+apiKey: 818a3123-d8c1-41d5-8feb-e77fc1c812f8
+cachePath: ""
+deviceId: ""
+extraParams: {}
+log:
+  lv: info
+  path: /var/log/chia/
+  name: hpool
+url:
+  info: ""
+  submit: ""
+  line: ""
+  ws: ""
+  proxy: ""
+scanPath: false
+scanMinute: 60
+debug: ""
+language: en
+multithreadingLoad: false
