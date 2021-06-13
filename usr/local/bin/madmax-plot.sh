@@ -6,6 +6,8 @@ FARMERKEY="9425d29b05b659d05814cd989e0d976c9b755f9730d3e112c8609aa3d5dd250a86ecb
 THREADS=20
 DESTINATION="/r0zfs1/"
 
+telegram-send "Starting MadMax Chia Plotter on ${HOSTNAME}"
+
 # Clear the Plotting Disk Before Start
 rm -f /mnt/plot/*
 
@@ -22,4 +24,6 @@ do
 
     # Copy Plot to ZFS Disk & Delete Plot on NVME When Copied
     rsync -v --remove-source-files --log-file=/var/log/chia-plotter/rsync.log --info=progress2 /mnt/plot/*.plot ${DESTINATION} 
+
+    telegram-send "Completed a Chia Plot on ${HOSTNAME}"
 done
