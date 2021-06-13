@@ -21,20 +21,20 @@ do
         telegram-send "${HOSTNAME} Out of Disk Space on ${DESTINATION}. Stopping Plotting!"
 
         # Stop Plotter Service
-        systemctl stop plotter
+        #systemctl stop plotter
     fi
 
     # Sleep For 10 Seconds
     sleep 10
     
     # Create Plot with 29 Threads (Pool-Key Farmer-Key PlotDir PlotDir Threads[4] Buckets[7])
-    chia_plot -p ${POOLKEY} -f ${FARMERKEY} -t /mnt/plot/ -2 /mnt/plot/ -r ${THREADS} -u 7 >> /var/log/chia-plotter/plotter.log
+    #chia_plot -p ${POOLKEY} -f ${FARMERKEY} -t /mnt/plot/ -2 /mnt/plot/ -r ${THREADS} -u 7 >> /var/log/chia-plotter/plotter.log
 
     # Sleep For 10 Seconds
     sleep 10
 
     # Copy Plot to Destination Disk & Delete Plot on NVME When Copied
-    rsync -v --remove-source-files --log-file=/var/log/chia-plotter/rsync.log --info=progress2 /mnt/plot/*.plot ${DESTINATION} 
+    #rsync -v --remove-source-files --log-file=/var/log/chia-plotter/rsync.log --info=progress2 /mnt/plot/*.plot ${DESTINATION} 
 
     telegram-send "Completed a Chia Plot on ${HOSTNAME}"
 done
