@@ -52,8 +52,34 @@ then
     exit 1
 fi
 
+# Update and Upgrade System
+apt -y update
+apt -y upgrade
+apt -y install git
+apt -y install python3
+apt -y install python3-pip
+
 # Remove Old Installation
 rm -rf /usr/share/hpool || true
+rm -f /etc/systemd/system/hpool-start.sh || true
+rm -f /etc/systemd/system/hpool-timer.sh || true
+rm -f /etc/systemd/system/hpool-restart.service || true
+rm -f /etc/systemd/system/hpool-restart.timer || true
+rm -f /etc/systemd/system/hpool.service || true
+
+# Install Telegram-Send
+pip3 install telegram-send
+
+# Install HPool Service
+cp usr/local/bin/hpool-start.sh /usr/local/bin/
+chmod +x /usr/local/bin/hpool-start.sh
+cp etc/systemd/system/hpool.service /etc/systemd/system/
+
+# Install HPool Restart Service
+cp usr/local/bin/hpool-timer.sh /usr/local/bin/
+chmod +x /usr/local/bin/hpool-timer.sh
+cp etc/systemd/system/hpool-restart.service /etc/systemd/system/
+cp etc/systemd/system/hpool-restart.timer /etc/systemd/system/
 
 # Crate HPool Log Dir
 mkdir /var/log/HPool || true
@@ -66,3 +92,21 @@ wget https://github.com/hpool-dev/chia-miner/releases/download/v1.4.1-1/HPool-Mi
 unzip ./HPool-Miner-chia-v1.4.1-0-linux.zip
 chmod -R 777 /usr/share/hpool/*
 
+# Reload Systemd Daemons
+systemctl daemon-reload
+
+# Enable HPool Service
+systemctl enable hpool.service
+
+# Enable HPool Restart Service
+systemctl enable hpool-restart.service
+
+# Enable HPool Restart timer
+systemctl enable hpool-restart.timer
+
+echo
+echo "Install Complete"
+echo
+echo "Configure telegram-send 'sudo telegram-send'"
+echo 
+echo "Edit HPool Config 'sudo vi /usr/share/hpool/linux/config.yaml'"
