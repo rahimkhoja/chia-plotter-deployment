@@ -51,3 +51,14 @@ then
     echo "This script must be run with sudo" 1>&2
     exit 1
 fi
+
+# Remove Old Installation
+rm -rf /usr/share/hpool || true
+
+# Deploy HPool Chia Miner
+mkdir /usr/share/hpool/ 
+cd /usr/share/hpool/
+wget https://github.com/hpool-dev/chia-miner/releases/download/v1.4.1-1/HPool-Miner-chia-v1.4.1-0-linux.zip
+unzip ./HPool-Miner-chia-v1.4.1-0-linux.zip
+chmod -R 777 /usr/share/hpool/*
+
