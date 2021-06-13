@@ -2,7 +2,7 @@
 
 [Unit]
 Description=Restarts The HPool Miner once a day.
-Wants=harvester-hpool-restart.timer
+Wants=hpool-restart.timer
 
 [Service]
 Type=oneshot
