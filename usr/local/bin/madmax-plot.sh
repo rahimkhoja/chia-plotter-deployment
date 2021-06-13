@@ -13,6 +13,9 @@ rm -f /mnt/plot/*
 
 while true
 do
+    # Get Available Space on Destination Disk
+    AVAIL=$(df --output=avail ${DESTINATION} | grep -v Avail)
+
     # Check Space on Destination
     if [ $AVAIL -lt 115000000 ]; then 
         telegram-send "${HOSTNAME} Out of Disk Space on ${DESTINATION}. Stopping Plotting!"
