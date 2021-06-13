@@ -6,7 +6,7 @@ Wants=hpool-restart.timer
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/hpool-restart.sh
+ExecStart=/usr/local/bin/hpool-timer.sh
 User=root
 Group=root
 
