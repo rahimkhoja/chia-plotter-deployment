@@ -64,6 +64,7 @@ pip3 install telegram-send
 mv /usr/local/bin/madmax-plot.sh /usr/local/bin/madmax-plot.sh.bak || true
 rm -f /etc/systemd/system/plotter.service || true
 rm -rf /usr/share/chia-plotter || true
+rm -f /usr/bin/chia_plot || true
 
 # Install Plotter Service
 cp usr/local/bin/madmax-plot.sh /usr/local/bin/
