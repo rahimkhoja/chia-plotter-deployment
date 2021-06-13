@@ -13,6 +13,12 @@ rm -f /mnt/plot/*
 
 while true
 do
+    # Check Space on Destination
+    if [ $AVAIL -lt 115000000 ]; then 
+        telegram-send "${HOSTNAME} Out of Disk Space on ${DESTINATION}. Stopping Plotting!"
+        systemctl stop plotter
+    fi
+
     # Sleep For 10 Seconds
     sleep 10
     
