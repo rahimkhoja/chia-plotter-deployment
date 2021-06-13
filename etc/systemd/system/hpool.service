@@ -1,0 +1,13 @@
+# HPool Chia Miner Service
+
+[Unit]
+Description=HPool Chia Miner Service.
+After=network.service
+
+[Service]
+ExecStart=/usr/local/bin/hpool-start.sh
+User=root
+Group=root
+
+[Install]
+WantedBy=default.target
