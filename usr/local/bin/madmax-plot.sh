@@ -16,6 +16,8 @@ do
     # Check Space on Destination
     if [ $AVAIL -lt 115000000 ]; then 
         telegram-send "${HOSTNAME} Out of Disk Space on ${DESTINATION}. Stopping Plotting!"
+
+        # Stop Plotter Service
         systemctl stop plotter
     fi
 
@@ -28,7 +30,7 @@ do
     # Sleep For 10 Seconds
     sleep 10
 
-    # Copy Plot to ZFS Disk & Delete Plot on NVME When Copied
+    # Copy Plot to Destination Disk & Delete Plot on NVME When Copied
     rsync -v --remove-source-files --log-file=/var/log/chia-plotter/rsync.log --info=progress2 /mnt/plot/*.plot ${DESTINATION} 
 
     telegram-send "Completed a Chia Plot on ${HOSTNAME}"
