@@ -35,7 +35,7 @@ do
     sleep 10
 
     # Copy Plot to Destination Disk & Delete Plot on NVME When Copied
-    #rsync -v --remove-source-files --log-file=/var/log/chia-plotter/rsync.log --info=progress2 /mnt/plot/*.plot ${DESTINATION} 
+    rsync -v --remove-source-files --log-file=/var/log/chia-plotter/rsync.log --info=progress2 /mnt/plot/*.plot ${DESTINATION} 
 
     telegram-send "Completed a Chia Plot on ${HOSTNAME}"
 done
