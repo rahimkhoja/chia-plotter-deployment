@@ -38,7 +38,7 @@ do
        if [ $AVAIL -gt 114000000 ]; then
            
            if [ "${i}" != "$DESTINATION" ]; then
-               telegram-send "${HOSTNAME} Selecting Disk ${DESTINATION}."
+               telegram-send "${HOSTNAME} Selecting Disk ${i}."
            fi
 
            # Define Destination Disk
@@ -57,7 +57,9 @@ do
            # Stop Plotter Service
            systemctl stop plotter      
        fi
-       
+    
+    done
+    
     # Sleep For 10 Seconds
     sleep 10
 
