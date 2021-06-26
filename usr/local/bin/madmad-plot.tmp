@@ -4,6 +4,8 @@
 POOLKEY="a0226aee1c59ba9a70f9c4aab77ea662bce96766b58913dfff2fb48c5766d594d0430b38df7b5f9f1787d39d7ab310f6"
 FARMERKEY="9425d29b05b659d05814cd989e0d976c9b755f9730d3e112c8609aa3d5dd250a86ecb8c164a66861857d45e71d6c9b9a"
 THREADS=20
+
+# Destination Disk Mount Points. If only one disk , you only need one element. (I have 11 disks as destinations)
 declare -a DESTINATIONARR=("/r0zfs1/" "/r0zfs2/" "/r0zfs3/" "/r0zfs4/" "/r0zfs5/" "/r0zfs6/" "/r0zfs7/" "/r0zfs8/" "/r0zfs9/" "/r0zfs9/" "/r0zfs10/" "/r0zfs11/")
 
 # Start Plotting Message
