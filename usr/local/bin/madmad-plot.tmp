@@ -25,14 +25,17 @@ do
        # Check Space
        if [ $AVAIL -gt 114000000 ]; then
            # Define Destination Disk
-           DESTINATION="$i"
+           DESTINATION="${i}"
            break
        fi
  
        # Stop Plotter Service if Last Disk
        if [ "${DESTINATIONARR[-1]}" = "${i}" ]; then
 
-           telegram-send "${HOSTNAME} Out of Disk Space on ${DESTINATION}. Stopping Plotting!"
+           telegram-send "${HOSTNAME} Out of Disk Space on ${DESTINATION}. No Space on System. Stopping Plotting!"
+
+           # Sleep For 5 Seconds
+           sleep 5
 
            # Stop Plotter Service
            systemctl stop plotter      
