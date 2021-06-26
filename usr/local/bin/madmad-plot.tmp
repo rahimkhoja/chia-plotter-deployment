@@ -22,6 +22,8 @@ telegram-send "Starting MadMax Chia Plotter on ${HOSTNAME} with ${THREADS} Threa
 # Clear the Plotting Disk Before Start
 rm -f /mnt/plot/*
 
+DESTINATION=""
+
 # Loop Until Disk Full
 while true
 do
@@ -34,6 +36,11 @@ do
 
        # Check Space
        if [ $AVAIL -gt 114000000 ]; then
+           
+           if [ "${i}" != "$DESTINATION" ]; then
+               telegram-send "${HOSTNAME} Selecting Disk ${DESTINATION}."
+           fi
+
            # Define Destination Disk
            DESTINATION="${i}"
            break
