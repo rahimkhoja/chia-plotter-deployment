@@ -94,6 +94,6 @@ echo "You Have ${num_cpus} Threads Available for Plotting"
 echo
 echo "Please Edit /usr/local/bin/madmax-plot.sh and Add Your Farmer Key, Your Pool Key, and the Threads to be used by the Plotter"
 echo
-echo "Please Setup Telegram-Send 'sudo telegram-send'"
+echo "Please Setup Telegram-Send 'sudo telegram-send --configure'"
 echo
 echo "Reboot to start Auto Plotting"
