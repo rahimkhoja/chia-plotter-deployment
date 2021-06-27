@@ -53,6 +53,11 @@ then
     exit 1
 fi
 
+# Update and Upgrade System
+apt -y update
+apt -y upgrade
+apt -y install xfsprogs            # XFS FS 
+
 # Setup NVME as Plotting Disk
 wipefs /dev/nvme0n1
 (
