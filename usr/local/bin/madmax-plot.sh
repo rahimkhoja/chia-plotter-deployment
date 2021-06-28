@@ -8,7 +8,7 @@ FARMERKEY="9425d29b05b659d05814cd989e0d976c9b755f9730d3e112c8609aa3d5dd250a86ecb
 FREETHREADS=2 
 
 # Destination Disk Mount Points. If only one disk , you only need one element. (I have 11 disks as destinations)
-declare -a DESTINATIONARR=("/r0zfs1/" "/r0zfs2/" "/r0zfs3/" "/r0zfs4/" "/r0zfs5/" "/r0zfs6/" "/r0zfs7/" "/r0zfs8/" "/r0zfs9/" "/r0zfs9/" "/r0zfs10/" "/r0zfs11/")
+declare -a DESTINATIONARR=("/r0zfs1/" "/r0zfs2/" "/r0zfs3/" "/r0zfs4/" "/r0zfs5/" "/r0zfs6/" "/r0zfs7/" "/r0zfs8/" "/r0zfs9/" "/r0zfs10/" "/r0zfs11/")
 
 # Discover Total Threads
 TOTALTHREADS=$(nproc)
